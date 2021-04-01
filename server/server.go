@@ -2,12 +2,13 @@ package main
 
 import (
 	"context"
-	"database/database"
 	"encoding/json"
 	"fmt"
 	"net"
 	"net/http"
-	"proto/proto"
+
+	"github.com/saimohanreddyt/grpc_user/database"
+	"github.com/saimohanreddyt/grpc_user/proto"
 
 	_ "github.com/go-sql-driver/mysql"
 	"google.golang.org/grpc"
