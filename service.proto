@@ -1,0 +1,31 @@
+syntax = "proto3";
+package proto;
+
+import "google/protobuf/empty.proto";
+
+message UserRequest{
+    int64 id = 1;
+    
+}
+message UserResponse{
+    int64 id = 1;
+    string fname = 2;
+    string city = 3;
+    int64 phone = 4;
+    int64 height = 5;
+    string married = 6;
+}
+message UserStringResponse{
+    string response = 1;
+}
+
+message UserListResponse{
+    repeated UserRequest users = 1;
+}
+service UserCrudService{
+    rpc GetUsers(google.protobuf.Empty) returns (UserListResponse);
+    rpc GetUser(UserRequest) returns (UserResponse);
+    rpc AddUser(UserRequest) returns (UserStringResponse);
+    rpc DeleteUser(UserRequest) returns (UserStringResponse);
+    rpc UpdateUser(UserRequest) returns (UserStringResponse);
+}
